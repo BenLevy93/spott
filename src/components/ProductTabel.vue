@@ -11,6 +11,7 @@
       <template #cell(actions)="row">
         <b-icon
           icon="pencil"
+          class="ben123"
           @click="info(row.item, row.index, $event.target)"
         ></b-icon>
       </template>
@@ -148,7 +149,7 @@ export default {
         title: "",
         content: ""
       },
-      editName: "Ben",
+      editName: "",
       editCost: "",
       editShipment: "",
       editAdvCost: "",
