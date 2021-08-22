@@ -78,6 +78,16 @@ async function loadCollection(name) {
   return client.db().collection(name);
 }
 
+//Handel prod
+
+if (process.env.NODE_ENV === "production") {
+  //Static folder
+  app.use(express.static(__dirname + "/public/"));
+
+  //Handel Singel Page App
+  app.get(/.*/, (res, req) => res.sendFile(__dirname + "/public/index.html"));
+}
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
